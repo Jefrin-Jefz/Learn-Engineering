@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_engg/view/video_player.dart';
 import 'package:learn_engg/view/widgets/common_button.dart';
 
 class WirelessComponentsScreen extends StatelessWidget {
@@ -25,7 +26,16 @@ class WirelessComponentsScreen extends StatelessWidget {
           CommonButton(
             title: 'Receiver',
             onPressed: () {
-              // plays animation of receiver
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const VideoPlayerView(
+                      title: 'Receiver',
+                      videoUrl:
+                          "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
+                      explanation:
+                          'this is the explanation of the video and this is a placeholder now'),
+                ),
+              );
             },
           ),
         ],
