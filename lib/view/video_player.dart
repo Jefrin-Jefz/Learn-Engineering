@@ -20,9 +20,6 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   late VideoPlayerController videoPlayerController;
   late CustomVideoPlayerController _customVideoPlayerController;
 
-  // String videoUrl =
-  //     "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
-  //
   @override
   void initState() {
     super.initState();
@@ -52,7 +49,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
         CustomVideoPlayer(
             customVideoPlayerController: _customVideoPlayerController),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Column(
             children: <Widget>[
               Text(
