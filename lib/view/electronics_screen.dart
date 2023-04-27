@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:learn_engg/view/communication_screen.dart';
-import 'package:learn_engg/view/electronics_screen.dart';
+import 'package:learn_engg/view/electronic_active_component_screen.dart';
+import 'package:learn_engg/view/electronic_passive_component_screen.dart';
 import 'package:learn_engg/view/widgets/common_button.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class ElectronicsScreen extends StatelessWidget {
+  const ElectronicsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Learn Engineering',
-        ),
+        title: const Text('Electronic Components'),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         children: <Widget>[
           CommonButton(
-            title: 'Electronic Components',
+            title: 'Active Components',
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const ElectronicsScreen(),
+                  builder: (context) => const ElectronicActiveComponentScreen(),
                 ),
               );
             },
@@ -31,20 +29,17 @@ class HomeScreen extends StatelessWidget {
             height: 16,
           ),
           CommonButton(
-            title: 'Communication components',
+            title: 'Passive Components',
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const CommunicationScreen(),
+                  builder: (context) =>
+                      const ElectronicPassiveComponentScreen(),
                 ),
               );
             },
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.camera_alt_rounded),
       ),
     );
   }

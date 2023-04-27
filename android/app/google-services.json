@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567331465643",
+    "project_id": "learn-engineering-be8de",
+    "storage_bucket": "learn-engineering-be8de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567331465643:android:92fd92d000902c66b74aee",
+        "android_client_info": {
+          "package_name": "com.example.learn_engg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567331465643-1m543bpqn0ofgj1m6mbpcbt33r96b6qm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1unr3tfKMAHMlWHZubj8hQRMa7EUxCDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567331465643-1m543bpqn0ofgj1m6mbpcbt33r96b6qm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
