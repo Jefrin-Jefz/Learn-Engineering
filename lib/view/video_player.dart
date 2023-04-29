@@ -19,12 +19,15 @@ class VideoPlayerView extends StatefulWidget {
 class _VideoPlayerViewState extends State<VideoPlayerView> {
   late VideoPlayerController videoPlayerController;
   late CustomVideoPlayerController _customVideoPlayerController;
+  bool _isVideoLoading = true;
 
   @override
   void initState() {
     super.initState();
     videoPlayerController = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((value) => setState(() {}));
+      ..initialize().then((value) => setState(() {
+            _isVideoLoading = false;
+          }));
     _customVideoPlayerController = CustomVideoPlayerController(
       context: context,
       videoPlayerController: videoPlayerController,
@@ -46,8 +49,16 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
         title: Text(widget.title),
       ),
       body: ListView(children: [
-        CustomVideoPlayer(
-            customVideoPlayerController: _customVideoPlayerController),
+        Stack(
+          children: [
+            CustomVideoPlayer(
+                customVideoPlayerController: _customVideoPlayerController),
+            if (_isVideoLoading)
+              const Center(
+                child: CircularProgressIndicator(),
+              ),
+          ],
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Column(
@@ -75,3 +86,17 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
     );
   }
 }
+
+// Stack(
+// children: [
+// AspectRatio(
+// aspectRatio: _customVideoPlayerController.value.aspectRatio,
+// child: CustomVideoPlayer(
+// customVideoPlayerController: _customVideoPlayerController),
+// ),
+// if (_isVideoLoading)
+// Center(
+// child: CircularProgressIndicator(),
+// ),
+// ],
+// ),
