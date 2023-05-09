@@ -86,17 +86,3 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
     );
   }
 }
-
-// Stack(
-// children: [
-// AspectRatio(
-// aspectRatio: _customVideoPlayerController.value.aspectRatio,
-// child: CustomVideoPlayer(
-// customVideoPlayerController: _customVideoPlayerController),
-// ),
-// if (_isVideoLoading)
-// Center(
-// child: CircularProgressIndicator(),
-// ),
-// ],
-// ),
