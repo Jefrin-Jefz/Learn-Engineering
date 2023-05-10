@@ -1,15 +1,13 @@
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_engg/data/mappings.dart';
 
 class VideoPlayerView extends StatefulWidget {
-  final String title;
-  final String videoUrl;
-  final String explanation;
+  final TopicData data;
+
   const VideoPlayerView({
     Key? key,
-    required this.title,
-    required this.videoUrl,
-    required this.explanation,
+    required this.data,
   }) : super(key: key);
 
   @override
@@ -24,7 +22,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   @override
   void initState() {
     super.initState();
-    videoPlayerController = VideoPlayerController.network(widget.videoUrl)
+    videoPlayerController = VideoPlayerController.network(widget.data.url)
       ..initialize().then((value) => setState(() {
             _isVideoLoading = false;
           }));
@@ -46,7 +44,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
     final tTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.data.title),
       ),
       body: ListView(children: [
         Stack(
@@ -74,7 +72,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
                 height: 16,
               ),
               Text(
-                widget.explanation,
+                widget.data.description,
                 style: tTheme.titleMedium?.copyWith(
                   color: cScheme.onSurfaceVariant,
                 ),
