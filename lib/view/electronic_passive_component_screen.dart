@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:learn_engg/view/video_player.dart';
 import 'package:learn_engg/view/widgets/common_button.dart';
+
+import '../data/mappings.dart';
 
 class ElectronicPassiveComponentScreen extends StatelessWidget {
   const ElectronicPassiveComponentScreen({Key? key}) : super(key: key);
@@ -14,52 +17,76 @@ class ElectronicPassiveComponentScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         children: <Widget>[
           CommonButton(
-            title: 'General Overview',
+            title: 'Resistor',
             onPressed: () {
-              //plays video
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => VideoPlayerView(
+                    data: mappings['resistor']!,
+                  ),
+                ),
+              );
             },
           ),
           const SizedBox(
             height: 16,
           ),
           CommonButton(
-            title: 'Resistor',
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CommonButton(
             title: 'Inductor',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => VideoPlayerView(
+                    data: mappings['inductor']!,
+                  ),
+                ),
+              );
+            },
           ),
           const SizedBox(
             height: 16,
           ),
           CommonButton(
             title: 'Capacitor',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => VideoPlayerView(
+                    data: mappings['capacitor']!,
+                  ),
+                ),
+              );
+            },
           ),
           const SizedBox(
             height: 16,
           ),
           CommonButton(
             title: 'Sensors',
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CommonButton(
-            title: 'PCB',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => VideoPlayerView(
+                    data: mappings['sensor']!,
+                  ),
+                ),
+              );
+            },
           ),
           const SizedBox(
             height: 16,
           ),
           CommonButton(
             title: 'Bread Board',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => VideoPlayerView(
+                    data: mappings['bread_board']!,
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

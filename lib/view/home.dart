@@ -50,24 +50,46 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final String result = await Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const QRScanner(),
-            ),
-          );
-          final TopicData? data = mappings[result];
-          if (data != null) {
-            if (!mounted) return;
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => VideoPlayerView(data: data),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            key: const Key('ARCamera'),
+            onPressed: () {},
+            child: const Icon(Icons.camera_alt_rounded),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Container(
+              width: 2,
+              height: 35,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white, width: 2),
+                color: Colors.white,
               ),
-            );
-          }
-        },
-        child: const Icon(Icons.qr_code_scanner),
+            ),
+          ),
+          FloatingActionButton(
+            key: const Key('QRScanner'),
+            onPressed: () async {
+              final String result = await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const QRScanner(),
+                ),
+              );
+              final TopicData? data = mappings[result];
+              if (data != null) {
+                if (!mounted) return;
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => VideoPlayerView(data: data),
+                  ),
+                );
+              }
+            },
+            child: const Icon(Icons.qr_code_scanner),
+          ),
+        ],
       ),
     );
   }

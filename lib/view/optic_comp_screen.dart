@@ -36,7 +36,7 @@ class OpticComponentsScreen extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => VideoPlayerView(
-                    data: mappings['opticFiber']!,
+                    data: mappings['opticalFiber']!,
                   ),
                 ),
               );
@@ -50,7 +50,9 @@ class OpticComponentsScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => VideoPlayerView(data: mappings['opticReceiver']!,),
+                  builder: (context) => VideoPlayerView(
+                    data: mappings['opticReceiver']!,
+                  ),
                 ),
               );
             },
