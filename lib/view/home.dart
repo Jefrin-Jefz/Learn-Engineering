@@ -54,11 +54,13 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            key: const Key('ARCamera'),
+            heroTag: 'AR camera',
+            key: const ValueKey('ARCamera'),
             onPressed: () {},
             child: const Icon(Icons.camera_alt_rounded),
           ),
           Padding(
+            key: const ValueKey('divider'),
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Container(
               width: 2,
@@ -70,7 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           FloatingActionButton(
-            key: const Key('QRScanner'),
+            heroTag: 'QR scanner',
+            key: const ValueKey('QR scanner'),
             onPressed: () async {
               final String result = await Navigator.of(context).push(
                 MaterialPageRoute(

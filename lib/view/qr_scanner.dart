@@ -16,6 +16,7 @@ class _QRScannerState extends State<QRScanner> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
   QRViewController? controller;
+  bool poppedOnce = false;
 
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
@@ -107,11 +108,11 @@ class _QRScannerState extends State<QRScanner> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
-        print(result!.code);
       });
-      if (result?.code != null) {
-        print('popping the navigator');
+      if (result?.code != null && !poppedOnce) {
+        controller.pauseCamera();
         Navigator.pop(context, result?.code);
+        poppedOnce = true;
       }
     });
   }
